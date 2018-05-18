@@ -1,6 +1,7 @@
-# text-game
 GitHub backup for my text-based game.
-It's not done. Not by a long shot.
+
+It's not done, not by a long shot.
+
 Feel free to download, I guess.
 (It's not like I can stop you...)
 
