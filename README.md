@@ -7,3 +7,5 @@ Feel free to download, I guess.
 
 *Requires Python 3.6 in order to play*
 https://www.python.org/downloads/
+
+**Suggestions are welcome!**
