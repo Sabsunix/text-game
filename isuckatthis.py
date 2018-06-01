@@ -19,7 +19,7 @@ def cont():
         print('')
     return
 
-
+# Game over / death function
 def game_over():
     global retried
     quips = [
@@ -77,6 +77,7 @@ def intro():
     cont()
     print("There is a door across the room.")
 
+    # List of choice1 valid actions
     smash_glass = [
         'smash glass',
         'smash window',
@@ -136,6 +137,7 @@ def intro():
         'break door glass with drugs',
         'break door glass with needle',
     ]
+    # End list of choice1 valid actions
 
     # Player input fail count
     ifc = 0
@@ -152,7 +154,10 @@ def intro():
 
         # Look around
         if choice1 == 'look around':
+            print('')
             print('You take a look around the room.')
+            cont()
+            print('Across the room from you is door.')
             cont()
             print('You see that there is a crowbar on the counter to the side.')
             cont()
@@ -162,6 +167,7 @@ def intro():
         # Try opening door
         elif choice1 == 'door' or choice1 == 'open door':
             got_up = True
+            print('')
             print('You get up from the bed and walk to the door.')
             cont()
             print("Strangely, the doorknob won\'t budge. It must be locked from the outside.")
@@ -172,7 +178,8 @@ def intro():
         # Smash window w/fist
         elif choice1 in smash_glass:
             punched_window = True
-            if got_up:
+            print('')
+            if not got_up:
                 print('You get up from the bed and walk to the door.')
                 cont()
             print('You smash through the door window with your fist.')
@@ -188,6 +195,7 @@ def intro():
         # Falcon punch window
         # (Player must have tried to smash window w/fist first)
         elif punched_window and choice1 in falcon_punch:
+            print('')
             print('You FALCON PUNCH through the door\'s window.')
             cont()
             print('However, Falcon Punches aren\'t immune to getting cut by glass...')
@@ -196,6 +204,7 @@ def intro():
 
         # Smash window w/crowbar (correct action)
         elif choice1 in crowbar:
+            print('')
             print('You grab the crowbar off the counter and use it to smash the door window.')
             cont()
             print('You reach over and open the door from the other side.')
@@ -205,6 +214,7 @@ def intro():
 
         # Do drugs
         elif choice1 in drugs:
+            print('')
             print('You reach over to the needles on the stand to your left and violently jab yourself with one.')
             cont()
             print('You start to feel high, lighter than air!')
@@ -217,7 +227,9 @@ def intro():
             input('*')
             game_over()
 
+        # Throw drugs at door
         elif choice1 in throw_drugs:
+            print('')
             if not got_up:
                 print('You reach over to the needles on the stand to your left and throw one at the door window.')
                 cont()
@@ -227,12 +239,12 @@ def intro():
                 print("You throw it at the door's window.")
                 cont()
             print("Unsurprisingly, it didn't to anything.")
-            # Alternate: needle bounces back and drugs player
+            # Alternate idea: needle bounces back and drugs player
             input('*')
 
         # Hint
         elif choice1 == 'hint':
-            print('Try looking around the room.')
+            print('Get out of the room. Try opening the door.')
 
         else:
             ifc += 1
@@ -243,11 +255,105 @@ def intro():
 
 
 def sequence2():
-    print('YAY!')
+    # You reach over and open the door from the other side.
+    print('You step out into the hallway.')
     cont()
-    print('U WINNER!')
-    input('Press Enter to close')
-    exit()
+    print('Yup, it\'s a hospital, alright.')
+    cont()
+    print('')
+    while True:
+        choice2 = input('Which way do you want to go? ')
+        choice2 = choice2.lower()
+
+        if choice2 == 'left' or choice2 == 'l':
+            # IDEAS FOR LEFT WAY PLZ
+            print('')
+            print('Wait, what?')
+            cont()
+            print('Apparently there is no left way.')
+            cont()
+            print("That's weird. I could have sworn...")
+            input('*')
+
+        elif choice2 == 'right' or choice2 == 'r':
+            sequence3()
+
+        elif choice2 == 'forward':
+            print('You walk forward into a wall.')
+            cont()
+            print('...And die of stupidity.')
+            input('*')
+            game_over()
+
+        else:
+            print('')
+            print('You can go left or right.')
+
+
+def sequence3():
+    # List of choice3 valid actions
+    door1 = [
+        'left',
+        'left door',
+        'l',
+        'l door',
+        'door 1',
+        '1'
+    ]
+
+    door2 = [
+        'right',
+        'right door',
+        'r',
+        'r door',
+        'door 2',
+        '2',
+    ]
+    # End list of choice3 valid actions
+
+    print('')
+    print('You turn right and walk down the hall.')
+    cont()
+    print('After walking for some time, you come to a set of two doors.')
+    cont()
+    while True:
+        choice3 = input('Which one? ')
+        choice3 = choice3.lower()
+
+        if choice3 in door1:
+            print('')
+            print('You open the left door and walk through.')
+            cont()
+            print("It's dark, darker than the hallways -- pitch black.")
+            cont()
+            print('You hear the door unexplainably slam behind you.')
+            cont()
+            print('...')
+            cont()
+            print('Suddenly there is light!')
+            cont()
+            # Shouldn't be
+            print('And the game is over!')
+            input('*')
+            print('Congratulations! \nU WINNER')
+            input('Press Enter to close the game. ')
+            exit()
+
+        elif choice3 in door2:
+            # DARK ROOM
+            print('')
+            print('You open the right door and walk through.')
+            cont()
+            # Shouldn't be
+            print('And the game is over!')
+            input('*')
+            print('Congratulations! \nU WINNER')
+            input('Press Enter to close the game. ')
+            exit()
+
+        else:
+            print('')
+            print('Door 1 or door 2?')
 
 
 
