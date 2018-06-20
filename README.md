@@ -1,11 +1,7 @@
-GitHub backup for my text-based game.
+This is a text-based game simply made for a school assignment.
+It is incredibly short.
 
-It's not done, not by a long shot.
+I do not plan on resuming or improving it (due to lack of ideas).
 
-Feel free to download, I guess.
-(It's not like I can stop you...)
-
-*Requires Python 3.6 in order to play*
+*If you do wish to try it out, you will need Python 3.6*
 https://www.python.org/downloads/
-
-**Suggestions are welcome!**
